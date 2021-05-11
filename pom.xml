@@ -15,7 +15,33 @@
 	<description>Kafka-sender</description>
 	<properties>
 		<java.version>11</java.version>
+		<!--ip&port :: default sandbox-->
+		<pom.app.server.port>8081</pom.app.server.port>
+		<pom.kafka.server.url>192.168.112.104</pom.kafka.server.url>
+		<pom.kafka.server.port>9092</pom.kafka.server.port>
 	</properties>
+
+	<profiles>
+		<!--ip&port for sandbox-->
+		<profile>
+			<id>sandbox</id>
+			<properties>
+				<pom.app.server.port>8081</pom.app.server.port>
+				<pom.kafka.server.url>192.168.112.104</pom.kafka.server.url>
+				<pom.kafka.server.port>9092</pom.kafka.server.port>
+			</properties>
+		</profile>
+		<!--ip&port for pre-prod-->
+		<profile>
+			<id>pre-prod</id>
+			<properties>
+				<pom.app.server.port>8888</pom.app.server.port>
+				<pom.kafka.server.url>10.6.79.41</pom.kafka.server.url>
+				<pom.kafka.server.port>2181</pom.kafka.server.port>
+			</properties>
+		</profile>
+	</profiles>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
