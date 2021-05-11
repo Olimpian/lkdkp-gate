@@ -1,0 +1,121 @@
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request":"getLocationList","data":""}}' "http://localhost:8081/send"
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request":"getLocationList","data":{"code":["1","2","3"]}}}' "http://localhost:8081/send"
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request":"getLocationList","data":""}}' "http://192.168.112.104:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request":"getTrip","data":{"date_from":"2020-09-05T00:00:00","date_to":"2020-09-21T00:00:00"}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request":"changedObjects","data":""}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getStokList","data":{"code":["1","2","3"]}}}' "http://localhost:8081/send"
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getStokList","data":""}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getStokQuantity","data":{"code":["code1","code2","code3"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getServiceList","data":{"code":["code1","code2","code3"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getISOList","data":{"code":["code1","code2","code3"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getTypeOfCargo","data":{"code":["code1","code2","code3"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getRequest","data":{"user":"3e0c5cd8-e1aa-405a-b693-383153cf78f2","dateFrom":"2020-09-05T00:00:00","dateTo":"2020-09-05T00:00:00","GUID":["3e0c5cd8-e1aa-405a-b693-383153cf78f2","3e0c5cd8-e1aa-405a-b693-383153cf78f4","3e0c5cd8-e1aa-405a-b693-383153cf78f6","3e0c5cd8-e1aa-405a-b693-383153cf78f7"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getInvoce","data":{"user":"3e0c5cd8-e1aa-405a-b693-383153cf78f2","dateFrom":"2020-09-05T00:00:00","dateTo":"2020-09-05T00:00:00","GUID":["3e0c5cd8-e1aa-405a-b693-383153cf78f2","3e0c5cd8-e1aa-405a-b693-383153cf78f4","3e0c5cd8-e1aa-405a-b693-383153cf78f6","3e0c5cd8-e1aa-405a-b693-383153cf78f7"],"GUIDinvoce":["3e0c5cd8-e1aa-405a-b693-383153cf78f2","3e0c5cd8-e1aa-405a-b693-383153cf78f4","3e0c5cd8-e1aa-405a-b693-383153cf78f6","3e0c5cd8-e1aa-405a-b693-383153cf78f7"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getRailwayInvoice","data":{"user":"3e0c5cd8-e1aa-405a-b693-383153cf78f2","dateFrom":"2020-09-05T00:00:00","dateTo":"2020-09-05T00:00:00","GUID":["3e0c5cd8-e1aa-405a-b693-383153cf78f2","3e0c5cd8-e1aa-405a-b693-383153cf78f4","3e0c5cd8-e1aa-405a-b693-383153cf78f6","3e0c5cd8-e1aa-405a-b693-383153cf78f7"],"GUIDreilwayInvoce":["3e0c5cd8-e1aa-405a-b693-383153cf78f2","3e0c5cd8-e1aa-405a-b693-383153cf78f4","3e0c5cd8-e1aa-405a-b693-383153cf78f6","3e0c5cd8-e1aa-405a-b693-383153cf78f7"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getDislocation","data":{"user":"3e0c5cd8-e1aa-405a-b693-383153cf78f2","dateFrom":"2020-09-05T00:00:00","dateTo":"2020-09-05T00:00:00","GUID":["3e0c5cd8-e1aa-405a-b693-383153cf78f2","3e0c5cd8-e1aa-405a-b693-383153cf78f4","3e0c5cd8-e1aa-405a-b693-383153cf78f6","3e0c5cd8-e1aa-405a-b693-383153cf78f7"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getReliz","data":{"user":"3e0c5cd8-e1aa-405a-b693-383153cf78f2","dateFrom":"2020-09-05T00:00:00","dateTo":"2020-09-05T00:00:00","GUID":["3e0c5cd8-e1aa-405a-b693-383153cf78f2","3e0c5cd8-e1aa-405a-b693-383153cf78f4","3e0c5cd8-e1aa-405a-b693-383153cf78f6","3e0c5cd8-e1aa-405a-b693-383153cf78f7"],"GUIDreliz":["3e0c5cd8-e1aa-405a-b693-383153cf78f2","3e0c5cd8-e1aa-405a-b693-383153cf78f4","3e0c5cd8-e1aa-405a-b693-383153cf78f6","3e0c5cd8-e1aa-405a-b693-383153cf78f7"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "getEventsList","data":{"user":"3e0c5cd8-e1aa-405a-b693-383153cf78f2"}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request":"createUser","data":{"FIO":"FIO","Email":"email@email.ru","Phone":"9990099","type":"fl","INN":"123456789101","KPP":"1234567890","OGRN":"1234567890"}}}' "http://localhost:8081/send"
