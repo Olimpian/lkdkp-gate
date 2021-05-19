@@ -17,8 +17,8 @@ public class PlayerClientController {
     @Autowired
     private PlayerClient playerClient;
 
-    @PostMapping("/send")
-    String sendAction(@RequestBody String json) throws JsonProcessingException {
+    @PostMapping("/send1")
+    String sendAction1(@RequestBody String json) throws JsonProcessingException {
 //        logger.info("type = " + action.getType());
 //        logger.info("priority = " + action.getPriority());
 //        logger.info("data = " + action.getData());
@@ -42,16 +42,16 @@ public class PlayerClientController {
 //    }
 
 
-    @PostMapping("/send1")
-    String sendAction1(@RequestParam(name = "type", required = true) String type,
-                       @RequestParam(name = "priority", required = true) Integer priority,
+    @PostMapping("/send")
+    String sendAction(@RequestParam(name = "type", required = true) String type,
+                       @RequestParam(name = "priority", required = false) Integer priority,
                        @RequestParam(name = "data", required = true) String data) {
         logger.info("type = " + type);
-        logger.info("priority = " + priority);
+        logger.info("priority = " + (priority == null ? "1" : priority));
         logger.info("data = " + data);
 
-//        playerClient.low(data);
-        playerClient.own(data);
+        playerClient.low(data);
+//        playerClient.own(data);
         //  return action.getData();
         return "ok\n";
     }
