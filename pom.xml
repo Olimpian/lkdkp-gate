@@ -40,6 +40,13 @@
 				<pom.kafka.server.port>2181</pom.kafka.server.port>
 			</properties>
 		</profile>
+		<!--ip&port for local start-->
+		<profile>
+			<id>local-start</id>
+			<properties>
+				<pom.app.server.port>8081</pom.app.server.port>
+			</properties>
+		</profile>
 	</profiles>
 
 	<dependencies>

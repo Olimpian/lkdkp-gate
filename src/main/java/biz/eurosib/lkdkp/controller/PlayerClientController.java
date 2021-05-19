@@ -17,11 +17,6 @@ public class PlayerClientController {
     @Autowired
     private PlayerClient playerClient;
 
-    @GetMapping("/hello")
-    String hello() {
-        return "Hello, i'm player!";
-    }
-
     @PostMapping("/send")
     String sendAction(@RequestBody String json) throws JsonProcessingException {
 //        logger.info("type = " + action.getType());
@@ -35,8 +30,8 @@ public class PlayerClientController {
 
         JSONObject action = new JSONObject(json);
 
-//        playerClient.low(action.get("data").toString());
-        playerClient.own(action.get("data").toString());
+        playerClient.low(action.get("data").toString());
+//        playerClient.own(action.get("data").toString());
       //  return action.getData();
         return "ok\n";
     }
@@ -48,13 +43,29 @@ public class PlayerClientController {
 
 
     @PostMapping("/send1")
-    String sendAction1(@RequestParam String type, @RequestParam String priority, @RequestParam String data) {
-        //logger.info("type = " + action.getType());
-        //logger.info("priority = " + action.getPriority());
-        //logger.info("data = " + action.getData());
+    String sendAction1(@RequestParam(name = "type", required = true) String type,
+                       @RequestParam(name = "priority", required = true) Integer priority,
+                       @RequestParam(name = "data", required = true) String data) {
+        logger.info("type = " + type);
+        logger.info("priority = " + priority);
+        logger.info("data = " + data);
 
-        //  playerClient.low(action.getData());
+//        playerClient.low(data);
+        playerClient.own(data);
         //  return action.getData();
         return "ok\n";
+    }
+
+
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello, i'm gate!";
+    }
+
+    @GetMapping("/version")
+    public String version() {
+        //todo release version
+        return "1.0";
     }
 }

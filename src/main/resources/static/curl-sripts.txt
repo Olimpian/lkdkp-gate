@@ -16,6 +16,12 @@ curl -i \
 -X POST --data \
 '{type:"exec",priority:1,data:{"request":"getLocationList","data":""}}' "http://192.168.112.104:8081/send"
 
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request":"getLocationList","data":""}}' "http://atg-ca.selfip.biz:48081/send"
+
 
 curl -i \
 -H "Accept: application/json" \
@@ -76,7 +82,21 @@ curl -i \
 -H "Accept: application/json" \
 -H "Content-Type:application/json" \
 -X POST --data \
+'{type:"exec",priority:1,data:{"request": "postRequest","data":{"other_fio": "Фамилия Имя Отчество","other_inn": "603654852125","other_tel": "+79261111111","other_email": "email@gmail.com","from_datetime": "2020-09-05T00:00:00","from_location": "1213124","to_location": "5621452","containers": [{"typeISO": "22G1","count": 2,"gruzlist":["1234", "5312", "531"],"cnt_eurosibowner": 0},{"typeISO": "22G1","count": 2,"gruzlist":["1234", "5312", "531"],"cnt_eurosibowner": 1}],"other_longdescription": "","driver_fio": "","passport": "","driver_reg": "","avtodovoz": "","avtodovoz_location": "","avtodovoz_date": "","avtovivoz": "","avtovivoz_location": "","avtovivoz_date": ""}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
 '{type:"exec",priority:1,data:{"request": "getRequest","data":{"user":"3e0c5cd8-e1aa-405a-b693-383153cf78f2","dateFrom":"2020-09-05T00:00:00","dateTo":"2020-09-05T00:00:00","GUID":["3e0c5cd8-e1aa-405a-b693-383153cf78f2","3e0c5cd8-e1aa-405a-b693-383153cf78f4","3e0c5cd8-e1aa-405a-b693-383153cf78f6","3e0c5cd8-e1aa-405a-b693-383153cf78f7"]}}}' "http://localhost:8081/send"
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data \
+'{type:"exec",priority:1,data:{"request": "updateRequest","data":{"GUID": "3e0c5cd8-e1aa-405a-b693-383153cf78f2","version": "72fgew324rfq23rf1f33","avtodovoz": "","avtodovoz_location": "","avtodovoz_date": "","avtovivoz": "","avtovivoz_location": "","avtovivoz_date": "","OrderStatus": 4,"servicesActive": ["код1", "код2", "код3"]}}}}' "http://localhost:8081/send"
 
 
 curl -i \
