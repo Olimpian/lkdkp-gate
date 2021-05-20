@@ -23,6 +23,9 @@ public class KafkaProducerConfig {
     @Value("${kafka.producer.id}")
     private String kafkaProducerId;
 
+    @Value("${kafka.queue.request}")
+    private String requestQueue;
+
     @Bean
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
@@ -46,4 +49,10 @@ public class KafkaProducerConfig {
         return template;
     }
 
+
+    //property getters
+
+    public String getRequestQueue() {
+        return requestQueue;
+    }
 }

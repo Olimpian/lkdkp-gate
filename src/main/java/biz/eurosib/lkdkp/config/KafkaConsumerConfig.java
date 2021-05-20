@@ -27,6 +27,9 @@ public class KafkaConsumerConfig {
     @Value("${kafka.group.id}")
     private String kafkaGroupId;
 
+    @Value("${kafka.queue.result}")
+    private String resultQueue;
+
     @Bean
     public KafkaListenerContainerFactory<?> batchFactory() {
         ConcurrentKafkaListenerContainerFactory<Long, AbstractDto> factory =
@@ -75,4 +78,10 @@ public class KafkaConsumerConfig {
         return new StringJsonMessageConverter();
     }
 
+
+    //property getters
+
+    public String getResultQueue() {
+        return resultQueue;
+    }
 }

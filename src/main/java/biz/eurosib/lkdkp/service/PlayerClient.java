@@ -1,5 +1,6 @@
 package biz.eurosib.lkdkp.service;
 
+import biz.eurosib.lkdkp.config.KafkaProducerConfig;
 import biz.eurosib.lkdkp.kafka.RequestDto;
 import biz.eurosib.lkdkp.kafka.ResultDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -11,70 +12,30 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class PlayerClient {
     private final KafkaTemplate<Long, RequestDto> kafkaTemplate;
+    private final KafkaProducerConfig config;
     private final ObjectMapper objectMapper;
 
     private final Logger log = LoggerFactory.getLogger(PlayerClient.class);
 
     @Autowired
     public PlayerClient(KafkaTemplate<Long, RequestDto> kafkaTemplate,
+                        KafkaProducerConfig config,
                         ObjectMapper objectMapper) {
         this.kafkaTemplate = kafkaTemplate;
+        this.config = config;
         this.objectMapper = objectMapper;
     }
 
-    //@Scheduled(initialDelay = 10000, fixedDelay = 20000)
-    public void low() {
-        RequestDto dto = new RequestDto("low");
-        log.info("<= low sending {}", writeValueAsString(dto));
-        kafkaTemplate.send("lkdkp.request.low", dto);
-    }
-
-    public void low(String data) {
-        RequestDto dto = new RequestDto(data);
+    public void produce(String data, UUID taskGuid) {
+        RequestDto dto = new RequestDto(data, taskGuid);
         log.info("<= low sending by POST {}", writeValueAsString(dto));
-        kafkaTemplate.send("lkdkp.request.low", dto);
+        kafkaTemplate.send(config.getRequestQueue(), dto);
     }
-
-    //@Scheduled(initialDelay = 12000, fixedDelay = 4000)
-    public void middle() {
-        RequestDto dto = new RequestDto("middle");
-        log.info("<= middle sending {}", writeValueAsString(dto));
-        kafkaTemplate.send("slkdkp.request.middle", dto);
-    }
-
-    public void own(String data) {
-        RequestDto dto = new RequestDto(data);
-        log.info("<= own sending by POST {}", writeValueAsString(dto));
-        kafkaTemplate.send("lkdkp.request.own1", dto);
-    }
-
-    //@Scheduled(initialDelay = 14000, fixedDelay = 4000)
-    public void high() {
-        RequestDto dto = new RequestDto("high");
-        log.info("<= high sending {}", writeValueAsString(dto));
-        kafkaTemplate.send("lkdkp.request.high", dto);
-    }
-
-    //@Scheduled(initialDelay = 16000, fixedDelay = 4000)
-    public void critical() {
-        RequestDto dto = new RequestDto("critical");
-        log.info("<= critical sending {}", writeValueAsString(dto));
-        kafkaTemplate.send("lkdkp.request.critical", dto);
-    }
-
-
-    ///////// readers
-
-    //@KafkaListener(id = "Result", topics = {"lkdkp.result"}, containerFactory = "singleFactory")
-    public ResultDto answer(ResultDto dto) {
-        log.info("get from queue Result");
-        //log.info("=> result {}", writeValueAsString(dto));
-        return dto;
-    }
-
 
 
 

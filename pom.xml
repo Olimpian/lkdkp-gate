@@ -19,6 +19,8 @@
 		<pom.app.server.port>8081</pom.app.server.port>
 		<pom.kafka.server.url>192.168.112.104</pom.kafka.server.url>
 		<pom.kafka.server.port>9092</pom.kafka.server.port>
+		<pom.kafka.queue.request>lkdkp.task</pom.kafka.queue.request>
+		<pom.kafka.queue.result>lkdkp.result</pom.kafka.queue.result>
 	</properties>
 
 	<profiles>
@@ -29,6 +31,8 @@
 				<pom.app.server.port>8081</pom.app.server.port>
 				<pom.kafka.server.url>192.168.112.104</pom.kafka.server.url>
 				<pom.kafka.server.port>9092</pom.kafka.server.port>
+				<pom.kafka.queue.request>lkdkp.task</pom.kafka.queue.request>
+				<pom.kafka.queue.result>lkdkp.result</pom.kafka.queue.result>
 			</properties>
 		</profile>
 		<!--ip&port for pre-prod-->
@@ -38,6 +42,8 @@
 				<pom.app.server.port>8888</pom.app.server.port>
 				<pom.kafka.server.url>10.6.79.41</pom.kafka.server.url>
 				<pom.kafka.server.port>2181</pom.kafka.server.port>
+				<pom.kafka.queue.request>lkdkp.task</pom.kafka.queue.request>
+				<pom.kafka.queue.result>lkdkp.result</pom.kafka.queue.result>
 			</properties>
 		</profile>
 		<!--ip&port for local start-->
@@ -45,6 +51,8 @@
 			<id>local-start</id>
 			<properties>
 				<pom.app.server.port>8081</pom.app.server.port>
+				<pom.kafka.queue.request>lkdkp.task-dev</pom.kafka.queue.request>
+				<pom.kafka.queue.result>lkdkp.result-dev</pom.kafka.queue.result>
 			</properties>
 		</profile>
 	</profiles>

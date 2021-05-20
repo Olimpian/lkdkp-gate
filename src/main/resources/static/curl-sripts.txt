@@ -23,8 +23,10 @@ curl -i \
 '{type:"exec",priority:1,data:{"request":"getLocationList","data":""}}' "http://atg-ca.selfip.biz:48081/send"
 
 
-curl -X POST -F 'type=exec' -F 'priority=1' -F 'data={"request":"getLocationList","data":""}' http://localhost:8081/send1
-curl -X POST -F 'type=exec' -F 'priority=1' -F 'data={"request":"getLocationList","data":""}' http://atg-ca.selfip.biz:48081/send1
+curl -X POST -F 'type=exec' -F 'priority=1' -F 'data={"request":"getLocationList","data":""}' http://localhost:8081/send
+curl -X POST -F 'type=exec' -F 'priority=1' -F 'data={"request":"getLocationList","data":""}' http://atg-ca.selfip.biz:48081/send
+
+curl -X GET -F 'taskGuid=a815227b-1261-409c-bfa4-2e070322f50d' http://localhost:8081/result
 
 
 curl -i \
