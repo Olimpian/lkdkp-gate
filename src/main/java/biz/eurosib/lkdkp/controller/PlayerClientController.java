@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -25,9 +27,9 @@ public class PlayerClientController {
 
 
     @PostMapping("/send")
-    UUID sendAction(@RequestParam(name = "type", required = true) String type,
-                       @RequestParam(name = "priority", required = false) Integer priority,
-                       @RequestParam(name = "data", required = true) String data) {
+    Map<String, Object> sendAction(@RequestParam(name = "type", required = true) String type,
+                                   @RequestParam(name = "priority", required = false) Integer priority,
+                                   @RequestParam(name = "data", required = true) String data) {
         logger.info("type = " + type);
         logger.info("priority = " + (priority == null ? "1" : priority));
         logger.info("data = " + data);
@@ -35,7 +37,10 @@ public class PlayerClientController {
         UUID taskGuid = UUID.randomUUID();
         playerClient.produce(data, taskGuid);
 
-        return taskGuid;
+        Map<String, Object> answer = new HashMap<>();
+        answer.put("result", 0);
+        answer.put("data", new HashMap<String, Object>(){{put("GUID", taskGuid);}});
+        return answer;
     }
 
     @GetMapping("/result")
@@ -60,6 +65,6 @@ public class PlayerClientController {
     @GetMapping("/version")
     public String version() {
         //todo release version
-        return "1.0";
+        return "2.0";
     }
 }

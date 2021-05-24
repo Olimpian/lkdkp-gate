@@ -26,7 +26,10 @@ curl -i \
 curl -X POST -F 'type=exec' -F 'priority=1' -F 'data={"request":"getLocationList","data":""}' http://localhost:8081/send
 curl -X POST -F 'type=exec' -F 'priority=1' -F 'data={"request":"getLocationList","data":""}' http://atg-ca.selfip.biz:48081/send
 
-curl -X GET -F 'taskGuid=a815227b-1261-409c-bfa4-2e070322f50d' http://localhost:8081/result
+curl -X POST -F 'type=exec' -F 'priority=1' -F 'data={"request":"createUser","data":{"request":"createUser","data":{"FIO":"FIO","Email":"email@email.ru","Phone":"9990099","type":"fl","INN":"123456789101","KPP":"1234567890","OGRN":"1234567890"}}}' http://localhost:8081/send
+curl -X POST -F 'type=exec' -F 'priority=1' -F 'data={"request":"createUser","data":{"request":"createUser","data":{"FIO":"FIO","Email":"email@email.ru","Phone":"9990099","type":"fl","INN":"123456789101","KPP":"1234567890","OGRN":"1234567890"}}}' http://atg-ca.selfip.biz:48081/send
+
+curl -X GET -F 'taskGuid=a3ce58dc-95c7-482d-a4e1-3e5fad477b89' http://localhost:8081/result
 
 
 curl -i \
