@@ -33,7 +33,7 @@ public class PlayerClient {
 
     public void produce(String data, UUID taskGuid) {
         RequestDto dto = new RequestDto(data, taskGuid);
-        log.info("<= low sending by POST {}", writeValueAsString(dto));
+        log.info("<=" + config.getRequestQueue() + "sending by POST {}", writeValueAsString(dto));
         kafkaTemplate.send(config.getRequestQueue(), dto);
     }
 
